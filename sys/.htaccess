@@ -1,0 +1,12 @@
+#turn on the rewrite engine
+
+Options +FollowSymlinks
+RewriteEngine on
+
+#RewriteCond %{REQUEST_FILENAME} !-f
+#RewriteCond %{REQUEST_FILENAME} !-d
+#RewriteRule ^([^/]+).(html|php|json|xml)$ index.php?p=$1&f=$2 [NC,QSA,L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([^/]+)/([^/]+).(html|json|xml)$ index.php?class=$1&function=$2&format=$3 [NC,QSA]
